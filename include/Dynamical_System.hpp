@@ -5,12 +5,12 @@
 
 class Dynamical_System {
 protected:
-  State state;
+  State initial_state;
 
 public:
   Dynamical_System();
   Dynamical_System(State _state);
-  virtual ODE formula() = 0;
+  virtual ODE equation(State state) = 0;
 };
 
 #endif
