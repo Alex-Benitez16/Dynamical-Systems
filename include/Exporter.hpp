@@ -3,20 +3,20 @@
 
 #include "additional.hpp"
 
+#include <fstream>
 #include <sstream>
 #include <string>
 
 class Exporter {
 private:
   std::string file_name;
-  std::stringstream buffer;
+  std::ofstream file;
 
 public:
   Exporter();
   Exporter(std::string _file_name);
 
   void add_state(State state);
-  void write_to_file();
 };
 
 #endif

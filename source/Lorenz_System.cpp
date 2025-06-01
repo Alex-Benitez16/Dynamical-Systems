@@ -16,7 +16,7 @@ Lorenz_System::Lorenz_System(State _state, double _sigma, double _rho,
 
 ODE Lorenz_System::equation(State state) {
   ODE temp;
-  temp.dx = rho * (state.y - state.x);
+  temp.dx = sigma * (state.y - state.x);
   temp.dy = state.x * (rho - state.z) - state.y;
   temp.dz = state.x * state.y - beta * state.z;
 

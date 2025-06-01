@@ -3,21 +3,15 @@
 
 Exporter::Exporter() {
   file_name = "output";
-  buffer << "x,y,z\n";
+  file.open("output/output.csv");
+  file << "x,y,z\n";
 }
 Exporter::Exporter(std::string _file_name) {
   file_name = _file_name;
-  buffer << "x,y,z\n";
+  file.open("output/" + file_name + ".csv");
+  file << "x,y,z\n";
 }
 
 void Exporter::add_state(State state) {
-  buffer << state.x << ',' << state.y << ',' << state.z << '\n';
-}
-
-void Exporter::write_to_file() {
-  std::ofstream file("output/" + file_name + ".csv");
-  if (file) {
-    file << buffer.str();
-  }
-  file.close();
+  file << state.x << ',' << state.y << ',' << state.z << '\n';
 }
