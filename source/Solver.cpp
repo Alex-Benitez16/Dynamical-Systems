@@ -31,4 +31,5 @@ void Solver::euler() {
     current = next;
   }
   exporter.add_state(current);
+  exporter.write_to_file();
 }
