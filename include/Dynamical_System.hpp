@@ -11,6 +11,7 @@ public:
   Dynamical_System();
   Dynamical_System(State _state);
   virtual ODE equation(State state) = 0;
+  State get_initial_state();
 };
 
 #endif
