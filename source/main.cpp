@@ -1,3 +1,4 @@
+#include "../include/Four_Wing_System.hpp"
 #include "../include/Halvorsen_System.hpp"
 #include "../include/Lorenz_System.hpp"
 #include "../include/Solver.hpp"
