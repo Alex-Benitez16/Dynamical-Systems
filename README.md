@@ -43,13 +43,15 @@ python output/plot.py
 
 2. Visualize in the web
 
-    - Open (Plotly Chart)[https://chart-studio.plotly.com/create/#/].
+    - Open [Plotly Chart](https://chart-studio.plotly.com/create/#/).
     - Import the csv (found in the output folder)
     - Select the + Trace button
     - Under type select 3D line
     - Select the corresponding rows
 
 ## UML
+
+![UML](./uml.png)
 
 ## Changing attractors, initial conditions and parameters
 
