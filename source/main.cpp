@@ -8,7 +8,9 @@
 #include <iostream>
 
 int main() {
-  Solver solv = Solver(new Chen_System(), 0.001, 0.0, 500.0, "lorenz");
+  Dynamical_System *sys = new Rossler_System();
+  Solver solv = Solver(sys, 0.001, 0.0, 500.0, "lorenz");
   solv.euler();
+  delete sys;
   return 0;
 }
