@@ -2,7 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  
 
-df = pd.read_csv('output/lorenz.csv')
+choice = input("Type the name of the file to graph (omit .csv and do not include spaces): ")
+
+df = pd.read_csv('output/' + choice + '.csv')
 
 fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
