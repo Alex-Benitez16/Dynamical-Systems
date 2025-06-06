@@ -53,6 +53,14 @@ python output/plot.py
 
 ![UML](./uml.png)
 
+The project essentially contains three parts: an **ODE** (ordinary differential equation), a **solver**, and an **exporter**. This are also the three main classes. 
+
+- **Solver**: The solver contains both the ODE (via aggregation) and the exporter (via composition). It contains the numerical methods to solve the equations and is responsible for making the right calls to the exporter.
+
+- **Exporter**: The exporter manages the export operations to the csv, such as creating the file and filling it with the states.
+
+- **ODE**: This is an abstract class where all the other systems inherit from. It contains an initial state and a virtual function for the equation, which will be overriden by the derived classes depending on the system.
+
 ## Samples
 
 > Note: All the following attractors use the default parameters with rk4 default method.
