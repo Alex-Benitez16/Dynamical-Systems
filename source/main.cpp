@@ -33,16 +33,15 @@ int ask_for_default_choice() {
   int n_choice;
 
   do {
-    std::cout << "\nPlease select default or custom attractor: \n";
+    std::cout << "\nPlease select default or custom ATTRACTOR: \n";
     std::cout << "\t 1. Default \n\t 2. Custom\n";
     std::cout << "Choice (select the number of the choice): ";
     std::getline(std::cin, choice);
 
-    // More readable digit check
     if (choice.size() == 1 && std::isdigit(choice[0])) {
       n_choice = choice[0] - '0';
     } else {
-      n_choice = -1; // Invalid
+      n_choice = -1;
     }
   } while (n_choice < 1 || n_choice > 2);
 
@@ -408,8 +407,95 @@ Sprott_System *ask_sprott() {
   return new Sprott_System((State){x, y, z}, a, b);
 }
 
+int ask_for_method() {
+  std::string choice;
+  int n_choice;
+
+  do {
+    std::cout << "\nPlease select numerical method: \n";
+    std::cout << "\t 1. Euler \n\t 2. Runge Kutta 4th order\n";
+    std::cout << "Choice (select the number of the choice): ";
+    std::getline(std::cin, choice);
+
+    if (choice.size() == 1 && std::isdigit(choice[0])) {
+      n_choice = choice[0] - '0';
+    } else {
+      n_choice = -1;
+    }
+  } while (n_choice < 1 || n_choice > 2);
+
+  return n_choice;
+}
+
+int ask_for_default_times() {
+  std::string choice;
+  int n_choice;
+
+  do {
+    std::cout << "\nPlease select default or custom NUMERICAL METHOD: \n";
+    std::cout << "\t 1. Default \n\t 2. Custom\n";
+    std::cout << "Choice (select the number of the choice): ";
+    std::getline(std::cin, choice);
+
+    if (choice.size() == 1 && std::isdigit(choice[0])) {
+      n_choice = choice[0] - '0';
+    } else {
+      n_choice = -1;
+    }
+  } while (n_choice < 1 || n_choice > 2);
+
+  return n_choice;
+}
+
+// Using state to return with x = h, y = start time and z = end time
+State ask_for_times() {
+  int choice = ask_for_default_times();
+
+  if (choice == 1)
+    return (State){0.01, 0, 200};
+
+  double h, start, end;
+  bool is_valid_output = false;
+
+  while (!is_valid_output) {
+    std::cout
+        << "\nEnter values for the size step (the smaller the more "
+           "presice, 0.1 or lower recommended), the start and end times \n\t "
+           "(size-step start-time end-time): ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::istringstream iss(input);
+    if (iss >> h >> start >> end) {
+
+      std::string remaining;
+      if (!(iss >> remaining)) {
+        if (h > 0 && start > 0 && end > 0) {
+          if (start < end) {
+            is_valid_output = true;
+          } else {
+            std::cout << "Must be start time < end time.";
+          }
+        } else {
+          std::cout << "All parameters must be positive.\n";
+        }
+      } else {
+        std::cout << "Please follow the correct format (exactly 3 numbers).\n";
+      }
+    } else {
+      std::cout
+          << "Invalid input. Please enter three numbers separated by spaces.\n";
+    }
+  }
+  return (State){h, start, end};
+}
+
 int main() {
   std::cout << "Hello, this is a solver for strange attractors. Enjoy!\n";
+
+  std::string enter_to_continue;
+  std::cout << "Press any key to continue";
+  std::getline(std::cin, enter_to_continue);
 
   Dynamical_System *sys;
 
@@ -436,8 +522,19 @@ int main() {
     break;
   }
 
-  Solver sovl = Solver(sys, 0.01, 0, 100, "output");
-  sovl.euler();
+  int method_choice = ask_for_method();
+
+  State times = ask_for_times();
+
+  std::string file_name;
+  std::cout << "Enter output file name (no extension included): ";
+  std::getline(std::cin, file_name);
+
+  Solver sovl = Solver(sys, times.x, times.y, times.z, file_name);
+  if (method_choice == 1)
+    sovl.euler();
+  else
+    sovl.rk4();
 
   delete sys;
 

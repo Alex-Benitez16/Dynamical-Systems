@@ -15,6 +15,8 @@ private:
   double start_time;
   double end_time;
 
+  State ode2state(ODE ode);
+
 public:
   Solver();
   Solver(Dynamical_System *_system, double _h, double _start_time,
