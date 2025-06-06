@@ -59,7 +59,7 @@ python output/plot.py
 
 ### Lorenz Attractor
 
-![Lorenz](./img/lorenz.png)
+![Lorenz](./img/CodeCogsEqn.png)
 
 ### Four Wing Attractor
 
