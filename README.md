@@ -53,6 +53,28 @@ python output/plot.py
 
 ![UML](./uml.png)
 
-## Changing attractors, initial conditions and parameters
-
 ## Samples
+
+> Note: All the following attractors use the default parameters with rk4 default method.
+
+### Lorenz Attractor
+
+![Lorenz](./img/lorenz.png)
+
+### Four Wing Attractor
+
+
+
+### Halvorsen Attractor
+
+
+
+### Rossler Attractor
+
+
+
+### Chen Attractor
+
+
+
+### Sprott Attractor

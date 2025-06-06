@@ -15,7 +15,7 @@ int ask_for_system_choice() {
   int n_choice;
   do {
     std::cout << "\nPlease select one of the following attractors: \n";
-    std::cout << "\t 1. Lorenz Attractor \n\t 2. Four_Wing Attractor \n\t 3. "
+    std::cout << "\t 1. Lorenz Attractor \n\t 2. Four Wing Attractor \n\t 3. "
                  "Halvorsen Attractor \n\t 4. Rossler Attractor \n\t 5. Chen "
                  "Attractor \n\t 6. Sprott Attractor\n";
     std::cout << "Choice (select the number of the attractor): ";
