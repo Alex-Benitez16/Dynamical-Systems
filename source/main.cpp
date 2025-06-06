@@ -494,7 +494,7 @@ int main() {
   std::cout << "Hello, this is a solver for strange attractors. Enjoy!\n";
 
   std::string enter_to_continue;
-  std::cout << "Press any key to continue";
+  std::cout << "Press enter to continue";
   std::getline(std::cin, enter_to_continue);
 
   Dynamical_System *sys;

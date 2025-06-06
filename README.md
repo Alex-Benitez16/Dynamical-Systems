@@ -59,22 +59,64 @@ python output/plot.py
 
 ### Lorenz Attractor
 
+**Equation:**
+
 ![Lorenz](./img/CodeCogsEqn.png)
+
+**Graph:**
+
+![Lorenz Graph](./img/p_lorenz.png)
 
 ### Four Wing Attractor
 
+**Equation:**
+
+![Four Wing](./img/four_wing.png)
+
+**Graph:**
+
+![Four Wing Graph](./img/p_four_wings.png)
 
 
 ### Halvorsen Attractor
 
+**Equation:**
+
+![Halvorsen](./img/halvorsen.png)
+
+**Graph:**
+
+![Halvorsen Graph](./img/p_halvorsen.png)
 
 
 ### Rossler Attractor
 
+**Equation:**
+
+![Rossler](./img/rossler.png)
+
+**Graph:**
+
+![Rossler Graph](./img/p_rossler.png)
 
 
 ### Chen Attractor
 
+**Equation:**
+
+![Chen](./img/chen.png)
+
+**Graph:**
+
+![Chen Graph](./img/p_chen.png)
 
 
 ### Sprott Attractor
+
+**Equation:**
+
+![Sprott](./img/sprott.png)
+
+**Graph:**
+
+![Sprott Graph](./img/p_sprott.png)
