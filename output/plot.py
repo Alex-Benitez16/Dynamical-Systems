@@ -1,3 +1,13 @@
+"""
+  Proyecto Visualizador de Sistemas Caóticos
+  Alejandro Benítez Bravo
+  A01712835
+  10/06/2025
+ 
+  Este programa toma los archivos csv generados por main.cpp 
+  y permite visualizarlos mediante gráficas utilizando matplotlib
+ """
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  

@@ -1,5 +1,20 @@
+/*
+ * Proyecto Visualizador de Sistemas Caóticos
+ * Alejandro Benítez Bravo
+ * A01712835
+ * 10/06/2025
+ * Se definen las funciones de Solver
+ */
+
 #include "../include/Solver.hpp"
 
+/**
+ * Solver crea un objeto de tipo Solver default
+ *
+ * @param
+ *
+ * @return objeto Solver
+ */
 Solver::Solver() {
   system = nullptr;
   h = 0.01;
@@ -7,6 +22,15 @@ Solver::Solver() {
   end_time = 50.0;
   exporter = Exporter();
 }
+
+/**
+ * Solver crea un objeto de tipo Solver
+ *
+ * @param Dynamical_System *_system double _h double _start_time
+ * @param double _end_time std::string _file_name
+ *
+ * @return objeto Solver
+ */
 Solver::Solver(Dynamical_System *_system, double _h, double _start_time,
                double _end_time, std::string _file_name) {
   system = _system;
@@ -16,6 +40,13 @@ Solver::Solver(Dynamical_System *_system, double _h, double _start_time,
   exporter = Exporter(_file_name);
 }
 
+/**
+ * ode2state convierte un ODE a un State
+ *
+ * @param ODE ode
+ *
+ * @return struct State
+ */
 State Solver::ode2state(ODE ode) {
   State temp;
   temp.x = ode.dx;
@@ -24,6 +55,13 @@ State Solver::ode2state(ODE ode) {
   return temp;
 }
 
+/**
+ * euler resuelve el sistema con el método de euler y lo exporta al csv
+ *
+ * @param
+ *
+ * @return
+ */
 void Solver::euler() {
   State current = system->get_initial_state();
   State next;
@@ -39,6 +77,13 @@ void Solver::euler() {
   exporter.add_state(current);
 }
 
+/**
+ * rk4 resuelve el sistema con el método de rk4 y lo exporta al csv
+ *
+ * @param
+ *
+ * @return
+ */
 void Solver::rk4() {
   State current = system->get_initial_state();
   State next;

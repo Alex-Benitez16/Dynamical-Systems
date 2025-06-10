@@ -1,3 +1,15 @@
+/*
+ * Proyecto Visualizador de Sistemas Caóticos
+ * Alejandro Benítez Bravo
+ * A01712835
+ * 10/06/2025
+ *
+ * Este es un proyecto para la clase TC1030 Programación Orientado a
+ * Objetos. Es un programa que calcula los valores de un sistema caótico
+ * dependiendo de los parámetros dados. Calcula los estados utilizando métodos
+ * numéricos y los exporta a un csv para poder visualizarlos
+ */
+
 #include "../include/Chen_System.hpp"
 #include "../include/Four_Wing_System.hpp"
 #include "../include/Halvorsen_System.hpp"
@@ -10,6 +22,13 @@
 #include <sstream>
 #include <string>
 
+/**
+ * ask_for_system_choice pregunta por el atractor y devuelve su número
+ *
+ * @param
+ *
+ * @return int n_choice (el número elegido)
+ */
 int ask_for_system_choice() {
   std::string choice;
   int n_choice;
@@ -28,6 +47,14 @@ int ask_for_system_choice() {
   return n_choice;
 }
 
+/**
+ * ask_for_default_choice pregunta entre default atractor o no y devuelve la
+ * elección
+ *
+ * @param
+ *
+ * @return int n_choice (el número elegido)
+ */
 int ask_for_default_choice() {
   std::string choice;
   int n_choice;
@@ -48,6 +75,13 @@ int ask_for_default_choice() {
   return n_choice;
 }
 
+/**
+ * ask_lorenz devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Lorenz_System*
+ */
 Lorenz_System *ask_lorenz() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -108,6 +142,13 @@ Lorenz_System *ask_lorenz() {
   return new Lorenz_System((State){x, y, z}, sigma, rho, beta);
 }
 
+/**
+ * ask_four_wing devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Four_Wing_System*
+ */
 Four_Wing_System *ask_four_wing() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -168,6 +209,13 @@ Four_Wing_System *ask_four_wing() {
   return new Four_Wing_System((State){x, y, z}, a, b, c);
 }
 
+/**
+ * ask_halvorsen devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Halvorsen_System*
+ */
 Halvorsen_System *ask_halvorsen() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -227,6 +275,13 @@ Halvorsen_System *ask_halvorsen() {
   return new Halvorsen_System((State){x, y, z}, a);
 }
 
+/**
+ * ask_rossler devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Rossler_System*
+ */
 Rossler_System *ask_rossler() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -287,6 +342,13 @@ Rossler_System *ask_rossler() {
   return new Rossler_System((State){x, y, z}, a, b, c);
 }
 
+/**
+ * ask_chen devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Chen_System*
+ */
 Chen_System *ask_chen() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -347,6 +409,13 @@ Chen_System *ask_chen() {
   return new Chen_System((State){x, y, z}, a, b, c);
 }
 
+/**
+ * ask_sprott devuelve el apundatador del atractor elegido con sus parametros
+ *
+ * @param
+ *
+ * @return Sprott_System*
+ */
 Sprott_System *ask_sprott() {
   int default_choice = ask_for_default_choice();
   if (default_choice == 1) {
@@ -407,6 +476,13 @@ Sprott_System *ask_sprott() {
   return new Sprott_System((State){x, y, z}, a, b);
 }
 
+/**
+ * ask_for_method pregunta por el método numérico y devuelve la elección
+ *
+ * @param
+ *
+ * @return int n_choice
+ */
 int ask_for_method() {
   std::string choice;
   int n_choice;
@@ -427,6 +503,14 @@ int ask_for_method() {
   return n_choice;
 }
 
+/**
+ * ask_for_default_times pregunta por los atributos del método numérico y
+ * devuelve la elección
+ *
+ * @param
+ *
+ * @return int n_choice
+ */
 int ask_for_default_times() {
   std::string choice;
   int n_choice;
@@ -447,7 +531,15 @@ int ask_for_default_times() {
   return n_choice;
 }
 
-// Using state to return with x = h, y = start time and z = end time
+/**
+ * ask_for_times devuelve los atributos elegidos
+ *
+ * usa state para devolver con x = h, y = start time z = end time
+ *
+ * @param
+ *
+ * @return State
+ */
 State ask_for_times() {
   int choice = ask_for_default_times();
 
