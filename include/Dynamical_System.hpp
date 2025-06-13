@@ -22,7 +22,8 @@ protected:
 public:
   Dynamical_System(); // Constructor default
   Dynamical_System(State _state);
-  virtual ~Dynamical_System();           // Destructor virtual
+  virtual ~Dynamical_System(); // Destructor virtual para eliminar problemas del
+                               // becario
   virtual ODE equation(State state) = 0; // Función virtual
   State get_initial_state();
 };
